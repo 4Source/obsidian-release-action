@@ -4,9 +4,56 @@ author: '4Source'
 
 # Define your inputs here.
 inputs:
-  
+  github_token:
+    description: 'The token used to access the GitHub API'
+    required: true
+  owner:
+    description: 'The owner of the repository.'
+    required: true
+  repository:
+    description: 'The repository name.'
+    required: true
+  previous_version:
+    description:
+      'The previous version for which the new version should be calculated.'
+    required: false
+    deprecationMessage:
+      'It is not recommendet to use this option could result in inconsisten
+      semantic versioning! Action could fetch latest release instead from
+      repository.'
+  version_component:
+    description:
+      'Indicates the change in version. Options: "major" - Incompatible changes,
+      "minor" - backwards-compatible added functionality, "patch" -
+      backwards-compatible bug fixes'
+    required: true
+  pre-release-identifiers:
+    description:
+      'Indicate this is an stable version or what type of pre-release. Options:
+      "apha" - early development state, "beta" - core features implemented and
+      ready to test, "rc" - Release Candidate stable pre-release for final
+      testing, "stable" (default) - ready for realese'
+    required: false
+    default: 'stable'
+  type:
+    description:
+      'The type of the obsidian extension the release should be made for.
+      Options: "plugin" (default) - repository contains a plugin, "theme" -
+      repository contains a theme'
+    requiered: false
+    default: 'plugin'
+  dry_run:
+    description:
+      'Do not perform the release, just calculate next version based on the
+      given inforamtion. Returns the new Version.'
+    required: false
+    default: false
+
 # Define your outputs here.
 outputs:
+  new_version:
+    description:
+      'The new version that is calculated with the given information.'
 
 runs:
   using: node20
