@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "semver": "^7.7.0"
+    "semver": "^7.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.8",
